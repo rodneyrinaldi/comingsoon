@@ -1,8 +1,12 @@
 import Head from "next/head";
 import Image from "next/image";
+import { useRouter } from "next/router";
 import styles from "../styles/index.module.css";
 
 export default function Home() {
+  const router = useRouter();
+  const { service } = router.query;
+
   return (
     <div className={styles.container}>
       <Head>
@@ -13,6 +17,7 @@ export default function Home() {
 
       <div className={styles.container}>
         <h2>em breve novidades</h2>
+        <h1>{service ? service : "serviço não especificado"}</h1>
         <a
           href="https://forms.office.com/r/VTxxF97D0J"
           target="_blank"
